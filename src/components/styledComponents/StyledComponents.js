@@ -45,14 +45,14 @@ export const TdInside = styled.td`
   width: 750px;
 `;
 
-export const MenuProductTd = styled.td`
+export const TodoProductTd = styled.td`
   font-size: 20px;
   font-family: cursive;
   display: flex;
   align-items: center;
   justify-content: start;
   padding: 8px;
-  background: #aaaa99;
+
   width: 500px;
   border-radius: 10px;
   margin-top: 6px;
