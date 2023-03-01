@@ -35,6 +35,10 @@ const Login = () => {
             ({ name, password }) =>
               values.username === name && values.password === password
           );
+          if (checkUser) {
+            navigate("/todo");
+            sessionStorage.setItem("userInfo", JSON.stringify(checkUser.id));
+          }
         }}
       >
         {({
