@@ -15,6 +15,16 @@ const Todo = () => {
 
   const usersList = useContext(UserListContext);
 
+  const submitHandle = (e) => {
+    e.preventDefault();
+  };
+
+  const onChange = (e) => {
+    const value = e.target.value;
+    const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
+    setTodoAdd(upperCase);
+  };
+
   return (
     <Container>
       <FormContainer>
@@ -23,9 +33,10 @@ const Todo = () => {
             <div key={todo.id}>{todo.name}</div>
           ))}
         </div>
-        <form>
+        <form onSubmit={submitHandle}>
           <input
             type="text"
+            onChange={onChange}
             maxLength="16"
             placeholder="enter your todo"
             className="todo-list"
