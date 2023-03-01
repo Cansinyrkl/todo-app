@@ -15,7 +15,9 @@ const Todo = () => {
   const todo = todoList.todo;
   const todoDispatch = todoList.todoDispatch;
   const userList = useContext(UserListContext);
+  const sessionId = sessionStorage.getItem("userInfo");
   const loginUser = getSession();
+  const loggedInUser = getUserFromSession(userList.users, loginUser);
 
   const submitHandle = (e) => {
     e.preventDefault();
@@ -34,11 +36,12 @@ const Todo = () => {
   return (
     <Container>
       <FormContainer>
-        <div>
-          {todo.map((todo) => (
-            <div key={todo.id}>{todo.name}</div>
-          ))}
-        </div>
+        {todo.map(({ name, userId }) => {
+          if (Number(sessionId) === userId || loggedInUser.admin === true) {
+            return <div>{name}</div>;
+          }
+          return null;
+        })}
         <form onSubmit={submitHandle}>
           <input
             type="text"
