@@ -32,3 +32,8 @@ export const Container = styled.body`
   flex-direction: column;
   height: 85vh;
 `;
+export const FormContainer = styled.header`
+  -webkit-box-shadow: 0px 0px 68px 0px rgb(57, 44, 57);
+  padding: 20px;
+  border-radius: 20px;
+`;
