@@ -1,3 +1,5 @@
+import { getSession } from "../../utils/Session";
+import { getUserFromSession } from "../../utils/helpers/GetUserFromSession";
 import React, { useState, useContext } from "react";
 import { TodoListContext } from "../../store/context/useTodoList";
 import { UserListContext } from "../../store/context/useUserContext";
@@ -12,13 +14,17 @@ const Todo = () => {
   const todoList = useContext(TodoListContext);
   const todo = todoList.todo;
   const todoDispatch = todoList.todoDispatch;
-
-  const usersList = useContext(UserListContext);
+  const userList = useContext(UserListContext);
+  const loginUser = getSession();
 
   const submitHandle = (e) => {
     e.preventDefault();
+    todoDispatch({
+      type: "ADD_MENU",
+      userId: loginUser,
+      text: todoAdd,
+    });
   };
-
   const onChange = (e) => {
     const value = e.target.value;
     const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
@@ -38,8 +44,9 @@ const Todo = () => {
             type="text"
             onChange={onChange}
             maxLength="16"
-            placeholder="enter your todo"
+            placeholder="Enter the todo"
             className="todo-list"
+            value={todoAdd}
           />
           <GeneralButton className="todoAddBtn" type="submit">
             Add
