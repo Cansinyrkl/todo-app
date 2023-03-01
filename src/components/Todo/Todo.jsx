@@ -3,6 +3,7 @@ import { getUserFromSession } from "../../utils/helpers";
 import React, { useState, useContext } from "react";
 import { TodoListContext } from "../../store/context/useTodoList";
 import { UserListContext } from "../../store/context/useUserContext";
+import { Link } from "react-router-dom";
 import {
   Container,
   FormContainer,
@@ -14,10 +15,7 @@ import {
   InTodoButton,
 } from "../styledComponents/StyledComponents";
 import DeleteModal from "../delete/Delete.js";
-import Arrangement from "../arrangement/Arrangement";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import Button from "react-bootstrap/Button";
 
 const Todo = () => {
   const [todoAdd, setTodoAdd] = useState("");
@@ -65,15 +63,11 @@ const Todo = () => {
               <TodoTd key={id}>
                 {name}
                 <TdInside className="props">
+                  <Link to={`/todo/${id}`}>asdad</Link>
                   <DeleteModal
                     deleteId={id}
                     productHeader={name}
                     className="deleteModalClass"
-                  />
-                  <Arrangement
-                    productHeader={name}
-                    selectedId={id}
-                    className="arrangementClass"
                   />
                 </TdInside>
               </TodoTd>

@@ -1,8 +1,6 @@
 import uuid from "react-uuid";
 
 const TodoReducer = (state, action) => {
-  console.log("state", state);
-  console.log("action", action);
   switch (action.type) {
     case "ADD_TODO":
       return [

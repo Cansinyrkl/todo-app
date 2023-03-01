@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Title from "./components/title/Title";
 import "./App.css";
 import Theme from "./theme/Theme";
+import EditPage from "./components/editpage/EditPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/todo" element={<Todo />} />
+            <Route path="/todo/:id" element={<EditPage />} />
           </Routes>
         </TodoListContextProvider>
       </UserListContextProvider>
