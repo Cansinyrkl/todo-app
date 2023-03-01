@@ -1,5 +1,5 @@
-import { getSession } from "../../utils/Session";
-import { getUserFromSession } from "../../utils/helpers/GetUserFromSession";
+import { getSession } from "../../utils/helpers";
+import { getUserFromSession } from "../../utils/helpers";
 import React, { useState, useContext } from "react";
 import { TodoListContext } from "../../store/context/useTodoList";
 import { UserListContext } from "../../store/context/useUserContext";
@@ -55,7 +55,7 @@ const Todo = () => {
             className="todo-list"
             value={todoAdd}
           />
-        <FontAwesomeIcon icon="fa-solid fa-plus" />
+          <FontAwesomeIcon icon="fa-solid fa-plus" />
         </form>
       </AddTodo>
       <FormContainer>
