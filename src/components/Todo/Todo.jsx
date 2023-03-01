@@ -7,7 +7,10 @@ import {
   Container,
   FormContainer,
   GeneralButton,
+  MenuProductTd,
+  TdInside,
 } from "../styledComponents/StyledComponents";
+import DeleteModal from "../delete/Delete.js";
 
 const Todo = () => {
   const [todoAdd, setTodoAdd] = useState("");
@@ -36,9 +39,20 @@ const Todo = () => {
   return (
     <Container>
       <FormContainer>
-        {todo.map(({ name, userId }) => {
+        {todo.map(({ id, name, userId }) => {
           if (Number(sessionId) === userId || loggedInUser.admin === true) {
-            return <div>{name}</div>;
+            return (
+              <MenuProductTd>
+                {name}
+                <TdInside className="props">
+                  <DeleteModal
+                    deleteId={id}
+                    productHeader={name}
+                    className="deleteModalClass"
+                  />
+                </TdInside>
+              </MenuProductTd>
+            );
           }
           return null;
         })}
