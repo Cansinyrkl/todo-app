@@ -25,27 +25,27 @@ export const GeneralButton = styled.button`
     color: red;
   }
 `;
-export const Container = styled.body`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 85vh;
 `;
-export const FormContainer = styled.header`
+export const FormContainer = styled.div`
   -webkit-box-shadow: 0px 0px 68px 0px rgb(57, 44, 57);
   padding: 20px;
   border-radius: 20px;
 `;
 
-export const TdInside = styled.td`
+export const TdInside = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
   width: 750px;
 `;
 
-export const TodoProductTd = styled.td`
+export const TodoTd = styled.div`
   font-size: 20px;
   font-family: cursive;
   display: flex;

@@ -25,7 +25,7 @@ function Arrangement({ productHeader, selectedId }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className="btn btn-outline-dark" onClick={handleShow}>
         <FontAwesomeIcon icon={faPenSquare} />
       </Button>
 
@@ -46,10 +46,10 @@ function Arrangement({ productHeader, selectedId }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button className="btn btn-outline-dark" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleEdit}>
+          <Button className="btn btn-outline-dark" onClick={handleEdit}>
             Save Changes
           </Button>
         </Modal.Footer>

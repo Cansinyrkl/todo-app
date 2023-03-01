@@ -18,7 +18,7 @@ function DeleteModal({ deleteId, productHeader }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className="btn btn-outline-dark" onClick={handleShow}>
         <FontAwesomeIcon icon={faTrash} />
       </Button>
 
@@ -30,11 +30,11 @@ function DeleteModal({ deleteId, productHeader }) {
           <b> {productHeader}</b>Are you sure you want to delete to do this?
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Çık
+          <Button className="btn btn-outline-dark" onClick={handleClose}>
+            Exit
           </Button>
-          <Button variant="primary" onClick={handleDelete}>
-            Kaydet
+          <Button className="btn btn-outline-dark" onClick={handleDelete}>
+            Save
           </Button>
         </Modal.Footer>
       </Modal>

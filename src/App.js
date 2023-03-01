@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <span className="App">
       <UserListContextProvider>
         <TodoListContextProvider>
           <Routes>
@@ -15,7 +15,7 @@ function App() {
           </Routes>
         </TodoListContextProvider>
       </UserListContextProvider>
-    </div>
+    </span>
   );
 }
 
