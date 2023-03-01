@@ -9,6 +9,13 @@ const TodoReducer = (state, action) => {
       ];
     case "DELETE_TODO":
       return [...state.filter((item) => item.id !== action.value)];
+    case "EDIT_TODO":
+      state.filter((food) => {
+        if (food.id === action.selectedId) {
+          return (food.name = action.newName);
+        }
+      });
+      return [...state];
   }
 };
 
