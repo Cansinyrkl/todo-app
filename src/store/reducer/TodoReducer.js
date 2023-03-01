@@ -7,6 +7,8 @@ const TodoReducer = (state, action) => {
         ...state,
         { id: uuid(), userId: action.userId, name: action.text },
       ];
+    case "DELETE_MENU":
+      return [...state.filter((item) => item.id !== action.value)];
   }
 };
 
