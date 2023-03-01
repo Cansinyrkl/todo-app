@@ -1,4 +1,5 @@
 import React from "react";
+import { ThemeButton } from "../components/styledComponents/StyledComponents";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
 
@@ -35,14 +36,12 @@ const Theme = () => {
 
   return (
     <>
-      <button
-        style={{ color: "white", position: "absolute" }}
+      <ThemeButton
         className={theme === "dark" ? clickedClass : ""}
         onClick={(e) => switchTheme(e)}
       >
-        Theme
-      </button>
-      <FontAwesomeIcon icon="faSun" />
+        <FontAwesomeIcon icon={faSun} />
+      </ThemeButton>
     </>
   );
 };

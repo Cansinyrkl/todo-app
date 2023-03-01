@@ -2,7 +2,7 @@ import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { useUserList } from "../../hooks/TodoListHooks";
+import { useTodoList } from "../../hooks/useTodoList";
 import { faPenSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -10,7 +10,7 @@ function Arrangement({ productHeader, selectedId }) {
   const [show, setShow] = useState(false);
   const [changeName, setChangeName] = useState(null);
 
-  const { todoDispatch } = useUserList();
+  const { todoDispatch } = useTodoList();
   const handleEdit = () => {
     setShow(false);
     todoDispatch({
@@ -25,9 +25,11 @@ function Arrangement({ productHeader, selectedId }) {
 
   return (
     <>
-      <Button className="btn btn-outline-dark" onClick={handleShow}>
-        <FontAwesomeIcon icon={faPenSquare} />
-      </Button>
+      <FontAwesomeIcon
+        icon={faPenSquare}
+        onClick={handleShow}
+        style={{ cursor: "pointer", marginLeft: 10 }}
+      />
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

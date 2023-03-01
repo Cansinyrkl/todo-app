@@ -1,6 +1,8 @@
 import uuid from "react-uuid";
 
 const TodoReducer = (state, action) => {
+  console.log("state", state);
+  console.log("action", action);
   switch (action.type) {
     case "ADD_TODO":
       return [
@@ -10,9 +12,9 @@ const TodoReducer = (state, action) => {
     case "DELETE_TODO":
       return [...state.filter((item) => item.id !== action.value)];
     case "EDIT_TODO":
-      state.filter((food) => {
-        if (food.id === action.selectedId) {
-          return (food.name = action.newName);
+      state.filter((todo) => {
+        if (todo.id === action.selectedId) {
+          return (todo.name = action.newName);
         }
       });
       return [...state];

@@ -34,31 +34,36 @@ export const Container = styled.div`
 `;
 export const FormContainer = styled.div`
   -webkit-box-shadow: 0px 0px 68px 0px rgb(57, 44, 57);
-  padding: 20px;
-  border-radius: 20px;
+  padding: 8px;
+  border-radius: 16px;
+  max-width: 100%;
+  margin-top: 60px;
 `;
 export const AddTodo = styled.div`
   -webkit-box-shadow: 0px 0px 68px 0px rgb(57, 44, 57);
   padding: 20px;
   border-radius: 10px;
-  width: 30%;
-  position: relative;
-  margin-bottom: 18px;
+  width: 26%;
+  position: absolute;
+  margin-bottom: 430px;
 `;
 export const InInput = styled.input`
- border-radius: 20px
+  border-radius: 20px
   padding: 20px;
   border-radius: 10px;
-  width: 80%;
-  margin-top: 10px
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+
 `;
 export const InTodoButton = styled.button`
- border-radius: 8px
+  border-radius: 8px
   padding: 18px;
   border-radius: 10px;
   width: 12%;
   position: absolute;
-  font-size: 20px
+  font-size: 2px
+  
 `;
 
 export const TdInside = styled.div`
@@ -75,11 +80,9 @@ export const TodoTd = styled.div`
   align-items: center;
   justify-content: start;
   padding: 8px;
-
   width: 500px;
-  border-radius: 10px;
-  margin-top: 6px;
-  border: 1px solid rgb(249, 214, 251);
+  margin-bottom: 8px;
+  border-bottom: 1px solid #566573;
 `;
 export const Todo = styled.div`
   position: absolute;
@@ -92,4 +95,13 @@ export const Todo = styled.div`
   font-family: Josefin Sans;
   margin: 24px;
   user-select: none;
+`;
+
+export const ThemeButton = styled.button`
+  color: white;
+  position: absolute;
+  margin-left: 96%;
+  margin-top: 38px;
+  background: transparent;
+  border: none;
 `;

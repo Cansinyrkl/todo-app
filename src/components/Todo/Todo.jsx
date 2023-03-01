@@ -55,9 +55,7 @@ const Todo = () => {
             className="todo-list"
             value={todoAdd}
           />
-          <Button className="btn btn-outline-dark">
-            <FontAwesomeIcon icon="faPlus" />
-          </Button>
+        <FontAwesomeIcon icon="fa-solid fa-plus" />
         </form>
       </AddTodo>
       <FormContainer>

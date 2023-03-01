@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useTodoList } from "../../hooks/UserListHooks";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useTodoList } from "../../hooks/useTodoList";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function DeleteModal({ deleteId, productHeader }) {
@@ -18,9 +18,11 @@ function DeleteModal({ deleteId, productHeader }) {
 
   return (
     <>
-      <Button className="btn btn-outline-dark" onClick={handleShow}>
-        <FontAwesomeIcon icon={faTrash} />
-      </Button>
+      <FontAwesomeIcon
+        icon={faXmark}
+        onClick={handleShow}
+        style={{ cursor: "pointer" }}
+      />
 
       <Modal show={show}>
         <Modal.Header>
