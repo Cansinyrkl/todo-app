@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useMenuList } from "../../hooks/UserListHooks";
+import { useTodoList } from "../../hooks/UserListHooks";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function DeleteModal({ deleteId, productHeader }) {
   const [show, setShow] = useState(false);
-  const { todoDispatch } = useMenuList();
+  const { todoDispatch } = useTodoList();
   const handleDelete = () => {
     setShow(false);
-    todoDispatch({ type: "DELETE_MENU", value: deleteId });
+    todoDispatch({ type: "DELETE_TODO", value: deleteId });
   };
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
