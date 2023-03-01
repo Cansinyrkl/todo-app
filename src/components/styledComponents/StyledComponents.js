@@ -37,3 +37,24 @@ export const FormContainer = styled.header`
   padding: 20px;
   border-radius: 20px;
 `;
+
+export const TdInside = styled.td`
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 750px;
+`;
+
+export const MenuProductTd = styled.td`
+  font-size: 20px;
+  font-family: cursive;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 8px;
+  background: #aaaa99;
+  width: 500px;
+  border-radius: 10px;
+  margin-top: 6px;
+  border: 1px solid rgb(249, 214, 251);
+`;
