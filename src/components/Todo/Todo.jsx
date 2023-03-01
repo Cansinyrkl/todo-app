@@ -8,10 +8,16 @@ import {
   FormContainer,
   GeneralButton,
   TodoTd,
+  AddTodo,
   TdInside,
+  InInput,
+  InTodoButton,
 } from "../styledComponents/StyledComponents";
 import DeleteModal from "../delete/Delete.js";
 import Arrangement from "../arrangement/Arrangement";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import Button from "react-bootstrap/Button";
 
 const Todo = () => {
   const [todoAdd, setTodoAdd] = useState("");
@@ -39,6 +45,21 @@ const Todo = () => {
 
   return (
     <Container>
+      <AddTodo>
+        <form onSubmit={submitHandle}>
+          <InInput
+            type="text"
+            onChange={onChange}
+            maxLength="16"
+            placeholder="Enter the todo"
+            className="todo-list"
+            value={todoAdd}
+          />
+          <Button className="btn btn-outline-dark">
+            <FontAwesomeIcon icon="faPlus" />
+          </Button>
+        </form>
+      </AddTodo>
       <FormContainer>
         {todo.map(({ id, name, userId }) => {
           if (Number(sessionId) === userId || loggedInUser.admin === true) {
@@ -62,19 +83,6 @@ const Todo = () => {
           }
           return null;
         })}
-        <form onSubmit={submitHandle}>
-          <input
-            type="text"
-            onChange={onChange}
-            maxLength="16"
-            placeholder="Enter the todo"
-            className="todo-list"
-            value={todoAdd}
-          />
-          <GeneralButton className="todoAddBtn" type="submit">
-            Add
-          </GeneralButton>
-        </form>
       </FormContainer>
     </Container>
   );
