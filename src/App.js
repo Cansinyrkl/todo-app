@@ -1,5 +1,5 @@
 import Login from "./components/login/Login";
-import Todo from "./components/Todo/Todo";
+import Todo from "./components/todo/Todo";
 import UserListContextProvider from "./store/context/useUserContext";
 import TodoListContextProvider from "./store/context/useTodoList";
 import { Route, Routes } from "react-router-dom";
@@ -7,7 +7,7 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <UserListContextProvider> 
+      <UserListContextProvider>
         <TodoListContextProvider>
           <Routes>
             <Route path="/" element={<Login />} />
