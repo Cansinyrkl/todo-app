@@ -1,6 +1,6 @@
 import { useContext, TodoListContext } from "./Index";
 
-export const useMenuList = () => {
+export const useTodoList = () => {
   const todoList = useContext(TodoListContext);
   const todo = todoList.todo;
   const todoDispatch = todoList.todoDispatch;
