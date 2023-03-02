@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Todo from "./components/pages/Todo";
 import Login from "./components/pages/Login";
-import EditPage from "./components/pages/EditPage";
+import Edit from "./components/pages/Edit";
 import NotFound from "./components/pages/NotFound";
 import TodoListContextProvider from "./store/context/useTodoList";
 import UserListContextProvider from "./store/context/useUserContext";
@@ -15,7 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/todo" element={<Todo />} />
-            <Route path="/todo/:id" element={<EditPage />} />
+            <Route path="/todo/:id" element={<Edit />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TodoListContextProvider>

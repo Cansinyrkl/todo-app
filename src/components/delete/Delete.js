@@ -22,7 +22,7 @@ function DeleteModal({ deleteId, todoName }) {
       <FontAwesomeIcon
         icon={faXmark}
         onClick={handleShow}
-        className="DeleteIcon"
+        className="deleteIcon"
       />
 
       <Modal show={show}>
@@ -34,10 +34,10 @@ function DeleteModal({ deleteId, todoName }) {
         </Modal.Body>
         <Modal.Footer>
           <Button className="btn btn-outline-dark" onClick={handleClose}>
-            Exit
+            No
           </Button>
           <Button className="btn btn-outline-dark" onClick={handleDelete}>
-            Save
+            Yes
           </Button>
         </Modal.Footer>
       </Modal>

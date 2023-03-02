@@ -43,7 +43,7 @@ const Todo = () => {
           <input
             type="text"
             onChange={onChange}
-            maxLength="13"
+            maxLength="32"
             placeholder="Add New Task"
             className="task-input"
             value={todoAdd}
@@ -54,18 +54,19 @@ const Todo = () => {
       {todo.map(({ id, name, userId }) => {
         if (Number(sessionId) === userId || loggedInUser.admin === true) {
           return (
-            <ul className="task-list">
-              <li className="task-list-item">
-                <label className="task-list-item-label" key={id}>
+            <>
+              <ul className="task-list">
+                <li className="task-list-item">
                   {name}
-                </label>
-                <div className="emty"></div>
-                <Link to={`/todo/${id}`}>
-                  <div class="edit icon"></div>
-                </Link>
-                <DeleteModal deleteId={id} todoName={name} />
-              </li>
-            </ul>
+                  <div className="edit-icon-container">
+                    <Link to={`/todo/${id}`}>
+                      <div className="edit-icon"></div>
+                    </Link>
+                    <DeleteModal deleteId={id} todoName={name} />
+                  </div>
+                </li>
+              </ul>
+            </>
           );
         }
         return null;

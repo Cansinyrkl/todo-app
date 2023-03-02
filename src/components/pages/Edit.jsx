@@ -1,11 +1,11 @@
-import React, { useMemo, useState, useEffect, useRef } from "react";
+import React, { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTodoList } from "../../hooks/useTodoList";
 import "../.././App.css";
-import Popup from "../../popup/Popup";
+import Popup from "../popup/Popup";
 import LogOut from "../logout/LogOut.jsx";
 
-const EditPage = () => {
+const Edit = () => {
   const [changeName, setChangeName] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   let { id } = useParams();
@@ -30,12 +30,13 @@ const EditPage = () => {
   return (
     <div className="edit-container">
       {showPopup && <Popup />}
-      <LogOut />
+      <LogOut disabled={showPopup} />
       <h1 className="edit-header">TO DO DEDIT</h1>
       <div className="edit-task">
         <input
           className="task-input"
           type="text"
+          maxLength="32"
           placeholder="Enter a different to do."
           defaultValue={filterData.name}
           onChange={(e) => setChangeName(e.target.value)}
@@ -51,4 +52,4 @@ const EditPage = () => {
   );
 };
 
-export default EditPage;
+export default Edit;

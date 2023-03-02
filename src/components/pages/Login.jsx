@@ -23,8 +23,8 @@ const Login = () => {
   };
 
   return (
-    <div class="flex-container">
-      <div class="form-container">
+    <div className="flex-container">
+      <div className="form-container">
         <Formik
           initialValues={initialValues}
           validate={(values) => loginValidate(values, users)}
@@ -72,7 +72,7 @@ const Login = () => {
                   {errors.checkUser && errors.checkUser}
                 </div>
               </div>
-              <button type="submit" class="submit-btn">
+              <button type="submit" className="submit-btn">
                 Login
               </button>
             </form>

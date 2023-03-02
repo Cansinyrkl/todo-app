@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { UserListContext } from "../../store/context/useUserContext";
 import { useNavigate } from "react-router-dom";
 import "../../App.css";
-const LogOut = () => {
+
+const LogOut = ({ disabled }) => {
   const { users } = useContext(UserListContext);
   const navigate = useNavigate();
 
@@ -15,7 +16,12 @@ const LogOut = () => {
   };
 
   return (
-    <button className="LogoutBtn" type="submit" onClick={btnLogout}>
+    <button
+      className="logout-btn"
+      type="submit"
+      onClick={btnLogout}
+      disabled={disabled}
+    >
       Logout
     </button>
   );
