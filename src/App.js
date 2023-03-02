@@ -3,7 +3,7 @@ import Todo from "./components/todo/Todo";
 import UserListContextProvider from "./store/context/useUserContext";
 import TodoListContextProvider from "./store/context/useTodoList";
 import { Route, Routes } from "react-router-dom";
-import Title from "./components/title/Title";
+
 import "./App.css";
 import Theme from "./theme/Theme";
 import EditPage from "./components/editpage/EditPage";
@@ -11,7 +11,6 @@ import EditPage from "./components/editpage/EditPage";
 function App() {
   return (
     <span className="App">
-      <Title />
       <Theme />
       <UserListContextProvider>
         <TodoListContextProvider>

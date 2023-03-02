@@ -4,18 +4,8 @@ import React, { useState, useContext } from "react";
 import { TodoListContext } from "../../store/context/useTodoList";
 import { UserListContext } from "../../store/context/useUserContext";
 import { Link } from "react-router-dom";
-import {
-  Container,
-  FormContainer,
-  GeneralButton,
-  TodoTd,
-  AddTodo,
-  TdInside,
-  InInput,
-  InTodoButton,
-} from "../styledComponents/StyledComponents";
+import "../../App.css";
 import DeleteModal from "../delete/Delete.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Todo = () => {
   const [todoAdd, setTodoAdd] = useState("");
@@ -34,6 +24,7 @@ const Todo = () => {
       userId: loginUser,
       text: todoAdd,
     });
+    setTodoAdd("");
   };
   const onChange = (e) => {
     const value = e.target.value;
@@ -42,41 +33,45 @@ const Todo = () => {
   };
 
   return (
-    <Container>
-      <AddTodo>
-        <form onSubmit={submitHandle}>
-          <InInput
+    <div className="app-container">
+      <h1 className="app-header">TO DO LIST</h1>
+      <div className="add-task">
+        <form onSubmit={submitHandle} className="task-form">
+          <input
             type="text"
             onChange={onChange}
             maxLength="16"
-            placeholder="Enter the todo"
-            className="todo-list"
+            placeholder="Add New Task"
+            className="task-input"
             value={todoAdd}
           />
-          <FontAwesomeIcon icon="fa-solid fa-plus" />
+          <button className="submit-task" />
         </form>
-      </AddTodo>
-      <FormContainer>
-        {todo.map(({ id, name, userId }) => {
-          if (Number(sessionId) === userId || loggedInUser.admin === true) {
-            return (
-              <TodoTd key={id}>
-                {name}
-                <TdInside className="props">
-                  <Link to={`/todo/${id}`}>asdad</Link>
+      </div>
+      {todo.map(({ id, name, userId }) => {
+        if (Number(sessionId) === userId || loggedInUser.admin === true) {
+          return (
+            <ul className="task-list">
+              <li className="task-list-item">
+                <label className="task-list-item-label" key={id}>
                   <DeleteModal
                     deleteId={id}
                     productHeader={name}
                     className="deleteModalClass"
                   />
-                </TdInside>
-              </TodoTd>
-            );
-          }
-          return null;
-        })}
-      </FormContainer>
-    </Container>
+                  {name}
+                </label>
+                <div className="emty"></div>
+                <Link to={`/todo/${id}`}>
+                  <div class="edit icon"></div>
+                </Link>
+              </li>
+            </ul>
+          );
+        }
+        return null;
+      })}
+    </div>
   );
 };
 

@@ -1,9 +1,4 @@
 import React, { useContext } from "react";
-import {
-  GeneralButton,
-  Container,
-  FormContainer,
-} from "../styledComponents/StyledComponents";
 import { UserListContext } from "../../store/context/useUserContext";
 import { Formik } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <Container>
+    <div>
       <Formik
         initialValues={{ username: "", password: "" }}
         validate={(values) => {
@@ -49,7 +44,7 @@ const Login = () => {
           handleBlur,
           handleSubmit,
         }) => (
-          <FormContainer>
+          <div>
             <form onSubmit={handleSubmit}>
               <h1>UserName</h1>
               <input
@@ -71,12 +66,12 @@ const Login = () => {
                 value={values.password}
               />
               {errors.password && touched.password && errors.password}
-              <GeneralButton type="submit">Submit</GeneralButton>
+              <button type="submit">Submit</button>
             </form>
-          </FormContainer>
+          </div>
         )}
       </Formik>
-    </Container>
+    </div>
   );
 };
 
