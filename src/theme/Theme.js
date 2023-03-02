@@ -1,7 +1,7 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../App.css";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Theme = () => {
   let clickedClass = "clicked";
   const body = document.body;
@@ -34,12 +34,12 @@ const Theme = () => {
   };
 
   return (
-    <button
+    <FontAwesomeIcon
+      id="FontAwesomeIco"
+      icon={faSun}
       className={theme === "dark" ? clickedClass : ""}
       onClick={(e) => switchTheme(e)}
-    >
-      <FontAwesomeIcon icon={faSun} />
-    </button>
+    />
   );
 };
 

@@ -4,21 +4,17 @@ html {
 
 h1 {
   color: white;
-
   font-size: 35px;
   font-weight: 800;
 }
 
 .flex-container {
   width: 100vw;
-
   margin-top: 60px;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .content-container {
   width: 500px;
   height: 350px;
@@ -27,19 +23,14 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 500px;
   height: 350px;
-
   margin-top: 5px;
   padding-top: 20px;
-
   border-radius: 12px;
-
   display: flex;
   justify-content: center;
-  flex-direction: column;
-
+  flex-direction: column
   background-color: #10101d;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
 }
@@ -57,7 +48,6 @@ input {
   background-color: #191933;
   border-radius: 6px;
   color: rgba(255, 255, 255, 0.555);
-
   height: 35px;
   width: 300px;
 }
@@ -78,7 +68,6 @@ input {
 
 .submit-btn:hover {
   color: rgb(255, 255, 255);
-
   box-shadow: none;
 }
 
@@ -96,15 +85,12 @@ body {
   transition: background 0.5s ease-in-out, color 0.6s ease-in-out;
   font-family: "DM Sans", sans-serif;
   overflow: hidden;
-}
-body.light {
-  background-color: rgb(255, 255, 255);
-  background: #8088aa;
-}
-
-body.dark {
-  background: #8088aa;
-  background-color: rgb(255, 255, 255);
+  box-sizing: content-box;
+  width: 100%;
+  background-image: url(../public/image/todoBackGround.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 input {
@@ -118,12 +104,34 @@ ul {
 
 .app-container {
   border-radius: 8px;
-  width: 400px;
-  max-width: 600px;
-  max-height: 100%;
+  width: 640px;
+  height: 600px;
   background-color: #10101d;
   padding: 24px;
   overflow: auto;
+}
+#FontAwesomeIco {
+  position: absolute;
+  width: 40px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  margin-left: 387px;
+  margin-top: 30px;
+}
+
+.ThemeSwicher {
+  position: absolute;
+  margin-left: 380px;
+  margin-top: 40px;
+  width: 20px;
+  height: 20px;
+  background-color: wheat;
+}
+
+.DeleteIcon {
+  color: white;
+  gap: 10px;
 }
 
 .app-header {
@@ -172,17 +180,18 @@ ul {
   color: #fff;
   box-shadow: none;
   border-radius: 0;
+  padding: 12px 20px;
 }
 .task-input:placeholder {
   color: #fff;
 }
-
 .task-list-item {
   background-color: #191933;
   border-radius: 4px;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
+  justify-content: ce;
   padding: 8px;
   text-decoration: none;
 }
@@ -218,10 +227,13 @@ ul {
   text-decoration: line-through rgba(255, 255, 255, 0.8);
 }
 .task-list-item-label {
-  display: flex;
-  margin: 8px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 10px;
   align-items: center;
-
   gap: 10px;
   color: #fff;
   margin-right: 8px;
@@ -230,6 +242,10 @@ ul {
   position: relative;
   transition: 0.2s;
   cursor: pointer;
+}
+
+.emty {
+  margin-left: 300px;
 }
 
 .delete-btn {
@@ -247,8 +263,6 @@ ul {
 
 .edit.icon {
   color: #ffff;
-  position: absolute;
-
   width: 16px;
   height: 2px;
   border-radius: 1px;
@@ -270,10 +284,8 @@ ul {
   border-bottom: solid 2px transparent;
 }
 
-@supports (-webkit-appearance: none) or (-moz-appearance: none) {
-  input[type="checkbox"],
-  input[type="radio"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
+.edit-container {
+  background-color: #191933;
+  width: 350px;
+  display: flex;
 }

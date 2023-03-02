@@ -1,7 +1,7 @@
-import Form from "react-bootstrap/Form";
 import React, { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTodoList } from "../../hooks/useTodoList";
+import "../.././App.css";
 
 const EditPage = () => {
   const [changeName, setChangeName] = useState(null);
@@ -24,19 +24,17 @@ const EditPage = () => {
   };
 
   return (
-    <>
-      <Form>
-        <Form.Control
-          type="text"
-          placeholder="Enter a different to do."
-          defaultValue={filterData.name}
-          onChange={(e) => setChangeName(e.target.value)}
-          autoFocus
-        />
-
-        <button onClick={handleEdit}>Edit</button>
-      </Form>
-    </>
+    <div className="edit-container">
+      <input
+        className="task-input"
+        type="text"
+        placeholder="Enter a different to do."
+        defaultValue={filterData.name}
+        onChange={(e) => setChangeName(e.target.value)}
+        autoFocus
+      />
+      <button className="submit-task" onClick={handleEdit} />
+    </div>
   );
 };
 

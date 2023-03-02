@@ -54,14 +54,14 @@ const Todo = () => {
             <ul className="task-list">
               <li className="task-list-item">
                 <label className="task-list-item-label" key={id}>
-                  <DeleteModal
-                    deleteId={id}
-                    productHeader={name}
-                    className="deleteModalClass"
-                  />
                   {name}
                 </label>
                 <div className="emty"></div>
+                <DeleteModal
+                  deleteId={id}
+                  productHeader={name}
+                  className="deleteModalClass"
+                />
                 <Link to={`/todo/${id}`}>
                   <div class="edit icon"></div>
                 </Link>

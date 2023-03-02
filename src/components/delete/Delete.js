@@ -22,6 +22,7 @@ function DeleteModal({ deleteId, productHeader }) {
         icon={faXmark}
         onClick={handleShow}
         style={{ cursor: "pointer" }}
+        className="DeleteIcon"
       />
 
       <Modal show={show}>
