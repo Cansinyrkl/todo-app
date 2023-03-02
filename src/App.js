@@ -1,10 +1,10 @@
-import Login from "./components/login/Login";
-import Todo from "./components/todo/Todo";
-import UserListContextProvider from "./store/context/useUserContext";
-import TodoListContextProvider from "./store/context/useTodoList";
 import { Route, Routes } from "react-router-dom";
-import EditPage from "./components/editpage/EditPage";
+import Todo from "./components/pages/Todo";
+import Login from "./components/pages/Login";
+import EditPage from "./components/pages/EditPage";
 import NotFound from "./components/pages/NotFound";
+import TodoListContextProvider from "./store/context/useTodoList";
+import UserListContextProvider from "./store/context/useUserContext";
 import "./App.css";
 
 function App() {
