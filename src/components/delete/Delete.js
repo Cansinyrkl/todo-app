@@ -6,9 +6,10 @@ import { useTodoList } from "../../hooks/useTodoList";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function DeleteModal({ deleteId, productHeader }) {
+function DeleteModal({ deleteId, todoName }) {
   const [show, setShow] = useState(false);
   const { todoDispatch } = useTodoList();
+
   const handleDelete = () => {
     setShow(false);
     todoDispatch({ type: "DELETE_TODO", value: deleteId });
@@ -21,7 +22,6 @@ function DeleteModal({ deleteId, productHeader }) {
       <FontAwesomeIcon
         icon={faXmark}
         onClick={handleShow}
-        style={{ cursor: "pointer" }}
         className="DeleteIcon"
       />
 
@@ -30,7 +30,7 @@ function DeleteModal({ deleteId, productHeader }) {
           <Modal.Title>ALERT</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <b>{productHeader} </b>Are you sure you want to delete to do this?
+          <b>{todoName} </b>Are you sure you want to delete to do this?
         </Modal.Body>
         <Modal.Footer>
           <Button className="btn btn-outline-dark" onClick={handleClose}>

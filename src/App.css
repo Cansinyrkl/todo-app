@@ -188,6 +188,7 @@ ul {
 }
 
 .DeleteIcon {
+  cursor: pointer;
   color: white;
   gap: 10px;
 }

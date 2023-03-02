@@ -18,7 +18,7 @@ const Todo = () => {
   const loginUser = getSession();
   const loggedInUser = getUserFromSession(userList.users, loginUser);
 
-  const submitHandle = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     todoDispatch({
       type: "ADD_TODO",
@@ -27,6 +27,7 @@ const Todo = () => {
     });
     setTodoAdd("");
   };
+
   const onChange = (e) => {
     const value = e.target.value;
     const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
@@ -38,7 +39,7 @@ const Todo = () => {
       <LogOut />
       <h1 className="app-header">TO DO LIST</h1>
       <div className="add-task">
-        <form onSubmit={submitHandle} className="task-form">
+        <form onSubmit={onSubmit} className="task-form">
           <input
             type="text"
             onChange={onChange}
@@ -62,7 +63,7 @@ const Todo = () => {
                 <Link to={`/todo/${id}`}>
                   <div class="edit icon"></div>
                 </Link>
-                <DeleteModal deleteId={id} productHeader={name} />
+                <DeleteModal deleteId={id} todoName={name} />
               </li>
             </ul>
           );

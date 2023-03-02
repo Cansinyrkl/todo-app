@@ -7,9 +7,7 @@ const LogOut = () => {
   const navigate = useNavigate();
 
   const btnLogout = () => {
-    const usersLogout = users.find((user) => {
-      return user.name && user.password;
-    });
+    const usersLogout = users.find((user) => user.name && user.password);
     if (usersLogout) {
       navigate("/");
       sessionStorage.clear();
