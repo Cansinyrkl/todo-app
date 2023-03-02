@@ -17,10 +17,10 @@ const Login = () => {
             validate={(values) => {
               const errors = {};
               if (!values.username) {
-                errors.username = "username boş bırakılamaz";
+                errors.username = "username cannot be left blank";
               }
               if (!values.password) {
-                errors.password = "password boş bırakılamaz";
+                errors.password = "password cannot be left blank";
               } else if (
                 /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.username)
               ) {
@@ -50,7 +50,7 @@ const Login = () => {
               handleBlur,
               handleSubmit,
             }) => (
-              <div>
+              <div className="LoginContainer">
                 <form onSubmit={handleSubmit}>
                   <h1>UserName</h1>
                   <input
@@ -73,7 +73,7 @@ const Login = () => {
                   />
                   {errors.password && touched.password && errors.password}
                   <button type="submit" class="submit-btn">
-                    Submit
+                    Login
                   </button>
                 </form>
               </div>

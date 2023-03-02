@@ -1,7 +1,8 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTodoList } from "../../hooks/useTodoList";
 import "../.././App.css";
+import Popup from "../../popup/Popup";
 
 const EditPage = () => {
   const [changeName, setChangeName] = useState(null);

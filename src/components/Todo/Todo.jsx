@@ -42,7 +42,7 @@ const Todo = () => {
           <input
             type="text"
             onChange={onChange}
-            maxLength="16"
+            maxLength="10"
             placeholder="Add New Task"
             className="task-input"
             value={todoAdd}
@@ -59,14 +59,10 @@ const Todo = () => {
                   {name}
                 </label>
                 <div className="emty"></div>
-                <DeleteModal
-                  deleteId={id}
-                  productHeader={name}
-                  className="deleteModalClass"
-                />
                 <Link to={`/todo/${id}`}>
                   <div class="edit icon"></div>
                 </Link>
+                <DeleteModal deleteId={id} productHeader={name} />
               </li>
             </ul>
           );
