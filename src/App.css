@@ -7,7 +7,19 @@ h1 {
   font-size: 35px;
   font-weight: 800;
 }
-
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .flex-container {
   width: 100vw;
   margin-top: 60px;
@@ -31,21 +43,21 @@ h1 {
 .popup {
   color: black;
   position: absolute;
-  top: 90%;
-  left: 86%;
-  width: 200px;
-  border: 1px solid red;
+  left: 50%;
+  bottom: 100px;
+  transform: translateX(-50%);
+  font-weight: 500;
+  padding: 10px 20px;
+  border: 1px solid darkgreen;
   border-radius: 12px;
-  padding: 10px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 
 .gg-check {
-  box-sizing: border-box;
-  position: relative;
   display: block;
-  transform: scale(var(--ggs, 1));
+  margin-left: 6px;
+  transform: scale(var(--ggs, 1.5));
   width: 22px;
   height: 22px;
   border: 2px solid transparent;
@@ -150,19 +162,12 @@ ul {
 .edit-container {
   border-radius: 8px;
   width: 640px;
-  height: 600px;
+  height: 300px;
   background-color: #10101d;
   padding: 24px;
   overflow: auto;
 }
-.edit-container {
-  border-radius: 8px;
-  width: 640px;
-  height: 600px;
-  background-color: #10101d;
-  padding: 24px;
-  overflow: auto;
-}
+
 #FontAwesomeIco {
   position: absolute;
   width: 40px;
@@ -225,6 +230,11 @@ ul {
   font-size: 14px;
   display: flex;
   flex-direction: column;
+}
+.edit-task {
+  height: 40px;
+  font-size: 14px;
+  display: flex;
 }
 
 .task-input {
@@ -353,12 +363,6 @@ ul {
   border-right: solid 5px currentColor;
   border-top: solid 2px transparent;
   border-bottom: solid 2px transparent;
-}
-
-.edit-container {
-  background-color: #191933;
-  width: 350px;
-  display: flex;
 }
 
 .error-style {
