@@ -6,6 +6,7 @@ import { UserListContext } from "../../store/context/useUserContext";
 import { Link } from "react-router-dom";
 import "../../App.css";
 import DeleteModal from "../delete/Delete.js";
+import LogOut from "../logout/LogOut.jsx";
 
 const Todo = () => {
   const [todoAdd, setTodoAdd] = useState("");
@@ -34,6 +35,7 @@ const Todo = () => {
 
   return (
     <div className="app-container">
+      <LogOut />
       <h1 className="app-header">TO DO LIST</h1>
       <div className="add-task">
         <form onSubmit={submitHandle} className="task-form">
