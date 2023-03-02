@@ -34,14 +34,12 @@ const Theme = () => {
   };
 
   return (
-    <>
-      <button
-        className={theme === "dark" ? clickedClass : ""}
-        onClick={(e) => switchTheme(e)}
-      >
-        <FontAwesomeIcon icon={faSun} />
-      </button>
-    </>
+    <button
+      className={theme === "dark" ? clickedClass : ""}
+      onClick={(e) => switchTheme(e)}
+    >
+      <FontAwesomeIcon icon={faSun} />
+    </button>
   );
 };
 
