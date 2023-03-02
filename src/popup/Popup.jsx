@@ -3,7 +3,7 @@ import ".././App.css";
 const Popup = () => {
   return (
     <div className="popup">
-      Kasdsadasdasd
+      you are being redirected <i class="gg-check"></i>
     </div>
   );
 };

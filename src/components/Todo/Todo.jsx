@@ -42,12 +42,12 @@ const Todo = () => {
           <input
             type="text"
             onChange={onChange}
-            maxLength="10"
+            maxLength="13"
             placeholder="Add New Task"
             className="task-input"
             value={todoAdd}
           />
-          <button className="submit-task" />
+          <button className="submit-task" disabled={!todoAdd} />
         </form>
       </div>
       {todo.map(({ id, name, userId }) => {
