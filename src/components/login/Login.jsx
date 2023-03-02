@@ -3,40 +3,32 @@ import { UserListContext } from "../../store/context/useUserContext";
 import { Formik } from "formik";
 import { useNavigate } from "react-router-dom";
 import "../.././App.css";
+import { loginValidate } from "../../utils/helpers";
 
 const Login = () => {
   const { users } = useContext(UserListContext);
   const navigate = useNavigate();
 
+  const initialValues = { username: "", password: "" };
+
+  const onSubmit = (values) => {
+    const checkUser = users.find(
+      ({ name, password }) =>
+        values.username === name && values.password === password
+    );
+    if (checkUser) {
+      navigate("/todo");
+      sessionStorage.setItem("userInfo", JSON.stringify(checkUser.id));
+    }
+  };
+
   return (
     <div class="flex-container">
       <div class="form-container">
         <Formik
-          initialValues={{ username: "", password: "" }}
-          validate={(values) => {
-            const errors = {};
-            if (!values.username) {
-              errors.username = "username cannot be left blank";
-            }
-            if (!values.password) {
-              errors.password = "password cannot be left blank";
-            } else if (
-              /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.username)
-            ) {
-              errors.username = "geçersiz username ";
-            }
-            return errors;
-          }}
-          onSubmit={(values) => {
-            const checkUser = users.find(
-              ({ name, password }) =>
-                values.username === name && values.password === password
-            );
-            if (checkUser) {
-              navigate("/todo");
-              sessionStorage.setItem("userInfo", JSON.stringify(checkUser.id));
-            }
-          }}
+          initialValues={initialValues}
+          validate={(values) => loginValidate(values, users)}
+          onSubmit={onSubmit}
         >
           {({
             values,
@@ -73,6 +65,11 @@ const Login = () => {
                 />
                 <div className="error-style">
                   {errors.password && touched.password && errors.password}
+                </div>
+              </div>
+              <div className="input-group">
+                <div className="error-style">
+                  {errors.checkUser && errors.checkUser}
                 </div>
               </div>
               <button type="submit" class="submit-btn">
