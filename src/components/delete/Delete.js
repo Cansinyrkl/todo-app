@@ -27,10 +27,10 @@ function DeleteModal({ deleteId, productHeader }) {
 
       <Modal show={show}>
         <Modal.Header>
-          <Modal.Title>{productHeader}</Modal.Title>
+          <Modal.Title>ALERT</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <b> {productHeader}</b>Are you sure you want to delete to do this?
+          <b>{productHeader} </b>Are you sure you want to delete to do this?
         </Modal.Body>
         <Modal.Footer>
           <Button className="btn btn-outline-dark" onClick={handleClose}>
