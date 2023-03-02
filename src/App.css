@@ -193,6 +193,17 @@ ul {
   gap: 10px;
 }
 
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.not-found-header {
+  color: #10101d;
+}
+
 .app-header {
   font-size: 20px;
   line-height: 32px;
