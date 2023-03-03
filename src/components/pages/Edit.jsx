@@ -3,34 +3,36 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useTodoList } from "../../hooks/useTodoList";
 import "../.././App.css";
 import Popup from "../popup/Popup";
-import LogOut from "../logout/LogOut.jsx";
+import UserLogout from "../user-logout/UserLogout.jsx";
 
 const Edit = () => {
   const [changeName, setChangeName] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   let { id } = useParams();
   const navigate = useNavigate();
-  const { todoDispatch, todo } = useTodoList();
+  const { todoDispatch, todoList } = useTodoList();
 
-  const filterData = useMemo(() => {
-    return todo.find((todo) => todo.id === id);
-  }, [id, todo]);
+  const todoListFilter = useMemo(() => {
+    return todoList.find((todo) => todo.id === id);
+  }, [id, todoList]);
+
+  const backToTodos = () => setTimeout(() => navigate("/todo"), 3000);
+  setTimeout(() => setShowPopup(false), 2000);
 
   const handleEdit = () => {
     todoDispatch({
       type: "EDIT_TODO",
-      selectedId: filterData.id,
+      selectedId: todoListFilter.id,
       newName: changeName,
     });
     setShowPopup(true);
-    setTimeout(() => navigate("/todo"), 3000);
-    setTimeout(() => setShowPopup(false), 2000);
+    backToTodos();
   };
 
   return (
     <div className="edit-container">
       {showPopup && <Popup />}
-      <LogOut disabled={showPopup} />
+      <UserLogout disabled={showPopup} />
       <h1 className="edit-header">TO DO DEDIT</h1>
       <div className="edit-task">
         <input
@@ -38,7 +40,7 @@ const Edit = () => {
           type="text"
           maxLength="32"
           placeholder="Enter a different to do."
-          defaultValue={filterData.name}
+          defaultValue={todoListFilter.name}
           onChange={(e) => setChangeName(e.target.value)}
           autoFocus
         />

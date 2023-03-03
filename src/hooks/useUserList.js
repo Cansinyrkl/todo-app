@@ -1,9 +1,10 @@
-import { useContext, UserListContext } from "./Index";
+import { useContext } from "react";
+import { UserListContext } from "../store/context/UserListContext";
 
 export const useUserList = () => {
-  const userList = useContext(UserListContext);
-  const users = userList.users;
-  const todoDispatch = userList.usersDispatch;
+  const userListContext = useContext(UserListContext);
+  const userList = userListContext.users;
+  const usersDispatch = userListContext.usersDispatch;
 
-  return { userList, users, todoDispatch };
+  return { userList, usersDispatch };
 };

@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
-import { UserListContext } from "../../store/context/useUserContext";
+import React from "react";
 import { Formik } from "formik";
 import { useNavigate } from "react-router-dom";
-import "../.././App.css";
 import { loginValidate } from "../../utils/helpers";
+import { useUserList } from "../../hooks/useUserList";
+import "../.././App.css";
 
 const Login = () => {
-  const { users } = useContext(UserListContext);
+  const { userList } = useUserList();
   const navigate = useNavigate();
 
   const initialValues = { username: "", password: "" };
 
   const onSubmit = (values) => {
-    const checkUser = users.find(
+    const checkUser = userList.find(
       ({ name, password }) =>
         values.username === name && values.password === password
     );
@@ -27,7 +27,7 @@ const Login = () => {
       <div className="form-container">
         <Formik
           initialValues={initialValues}
-          validate={(values) => loginValidate(values, users)}
+          validate={(values) => loginValidate(values, userList)}
           onSubmit={onSubmit}
         >
           {({

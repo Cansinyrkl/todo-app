@@ -3,8 +3,8 @@ import Todo from "./components/pages/Todo";
 import Login from "./components/pages/Login";
 import Edit from "./components/pages/Edit";
 import NotFound from "./components/pages/NotFound";
-import TodoListContextProvider from "./store/context/useTodoList";
-import UserListContextProvider from "./store/context/useUserContext";
+import TodoListContextProvider from "./store/context/TodoListContext";
+import UserListContextProvider from "./store/context/UserListContext";
 import "./App.css";
 
 function App() {

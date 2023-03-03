@@ -1,22 +1,20 @@
-import { getSession } from "../../utils/helpers";
-import { getUserFromSession } from "../../utils/helpers";
-import React, { useState, useContext } from "react";
-import { TodoListContext } from "../../store/context/useTodoList";
-import { UserListContext } from "../../store/context/useUserContext";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LogOut from "../user-logout/UserLogout.jsx";
+import { useUserList } from "../../hooks/useUserList";
+import { useTodoList } from "../../hooks/useTodoList";
+import { getUserLoginInfo } from "../../utils/helpers";
+import { getUserFromSession } from "../../utils/helpers";
+import DeleteModal from "../delete-modal/DeleteModal.jsx";
 import "../../App.css";
-import DeleteModal from "../delete/Delete.js";
-import LogOut from "../logout/LogOut.jsx";
 
 const Todo = () => {
   const [todoAdd, setTodoAdd] = useState("");
-  const todoList = useContext(TodoListContext);
-  const todo = todoList.todo;
-  const todoDispatch = todoList.todoDispatch;
-  const userList = useContext(UserListContext);
+  const { todoList, todoDispatch } = useTodoList();
+  const { userList } = useUserList();
   const sessionId = sessionStorage.getItem("userInfo");
-  const loginUser = getSession();
-  const loggedInUser = getUserFromSession(userList.users, loginUser);
+  const loginUser = getUserLoginInfo();
+  const loggedInUser = getUserFromSession(userList, loginUser);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -51,8 +49,8 @@ const Todo = () => {
           <button className="submit-task" disabled={!todoAdd} />
         </form>
       </div>
-      {todo.map(({ id, name, userId }) => {
-        if (Number(sessionId) === userId || loggedInUser.admin === true) {
+      {todoList.map(({ id, name, userId }) => {
+        if (Number(sessionId) === userId || loggedInUser.admin) {
           return (
             <>
               <ul className="task-list">

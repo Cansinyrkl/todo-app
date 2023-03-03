@@ -1,9 +1,10 @@
-import { useContext, TodoListContext } from "./Index";
+import { TodoListContext } from "../store/context/TodoListContext";
+import { useContext } from "react";
 
 export const useTodoList = () => {
-  const todoList = useContext(TodoListContext);
-  const todo = todoList.todo;
-  const todoDispatch = todoList.todoDispatch;
+  const todoListContext = useContext(TodoListContext);
+  const todoList = todoListContext.todo;
+  const todoDispatch = todoListContext.todoDispatch;
 
-  return { todoList, todo, todoDispatch };
+  return { todoList, todoDispatch };
 };
