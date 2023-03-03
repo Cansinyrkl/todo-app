@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
-import { UserListContext } from "../../store/context/UserListContext";
+import React from "react";
+import { useUserList } from "../../hooks/useUserList";
 import { useNavigate } from "react-router-dom";
 import "../../App.css";
 
 const UserLogout = ({ disabled }) => {
-  const { users } = useContext(UserListContext);
+  const { userList } = useUserList();
   const navigate = useNavigate();
 
   const btnLogout = () => {
-    const loggedUserValidation = users.find(
+    const loggedUserValidation = userList.find(
       (user) => user.name && user.password
     );
     if (loggedUserValidation) {
