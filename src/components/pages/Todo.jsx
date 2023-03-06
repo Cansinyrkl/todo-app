@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import LogOut from "../user-logout/UserLogout.jsx";
 import { useUserList } from "../../hooks/useUserList";
 import { useTodoList } from "../../hooks/useTodoList";
-import { getUserLoginInfo } from "../../utils/helpers";
-import { getUserFromSession } from "../../utils/helpers";
+import { getUserLoginInfo } from "../../utils/helpers/orhers";
+import { getUserFromSession } from "../../utils/helpers/orhers";
 import DeleteModal from "../delete-modal/DeleteModal.jsx";
 import "../../App.css";
+import { addTodoAction } from "../../utils/helpers/actions";
 
 const Todo = () => {
   const [todoAdd, setTodoAdd] = useState("");
@@ -16,20 +17,16 @@ const Todo = () => {
   const loginUser = getUserLoginInfo();
   const loggedInUser = getUserFromSession(userList, loginUser);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    todoDispatch({
-      type: "ADD_TODO",
-      userId: loginUser,
-      text: todoAdd,
-    });
-    setTodoAdd("");
-  };
-
   const onChange = (e) => {
     const value = e.target.value;
     const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
     setTodoAdd(upperCase);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    todoDispatch(addTodoAction(loginUser, todoAdd));
+    setTodoAdd("");
   };
 
   return (

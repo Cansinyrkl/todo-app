@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useTodoList } from "../../hooks/useTodoList";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { deleteTodoAction } from "../../utils/helpers/actions";
 
 function DeleteModal({ deleteId, todoName }) {
   const [show, setShow] = useState(false);
@@ -12,7 +13,7 @@ function DeleteModal({ deleteId, todoName }) {
 
   const handleDelete = () => {
     setShow(false);
-    todoDispatch({ type: "DELETE_TODO", value: deleteId });
+    todoDispatch(deleteTodoAction(deleteId));
   };
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);

@@ -4,6 +4,7 @@ import { useTodoList } from "../../hooks/useTodoList";
 import "../.././App.css";
 import Popup from "../popup/Popup";
 import UserLogout from "../user-logout/UserLogout.jsx";
+import { editTodoAction } from "../../utils/helpers/actions";
 
 const Edit = () => {
   const [changeName, setChangeName] = useState(null);
@@ -20,11 +21,7 @@ const Edit = () => {
   setTimeout(() => setShowPopup(false), 2000);
 
   const handleEdit = () => {
-    todoDispatch({
-      type: "EDIT_TODO",
-      selectedId: todoListFilter.id,
-      newName: changeName,
-    });
+    todoDispatch(editTodoAction(todoListFilter.id, changeName));
     setShowPopup(true);
     backToTodos();
   };
